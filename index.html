@@ -12,8 +12,21 @@
     <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
     <script>
+        const Person = (props) => {
+            return React.createElement("div", {}, [
+                React.createElement("h1", {}, props.name),
+                React.createElement("h1", {}, props.occupation),
+            ])
+        }
+
         const App = () => {
-            return React.createElement("div", {}, React.createElement("h1", {}, "hrishikesh"))
+            return React.createElement("div", {}, React.createElement("h1", {}, [
+            "hrishikesh",
+            React.createElement(Person,{name: "hrishikesh rai", occupation : "Developer"}),
+            React.createElement(Person,{name: "Ritu rai", occupation : "CA"}),
+            React.createElement(Person,{name: "Shambhavi rai", occupation : "Commerce"}),
+
+            ]))
             
         }
         ReactDOM.render(React.createElement(App), document.getElementById('root'))
